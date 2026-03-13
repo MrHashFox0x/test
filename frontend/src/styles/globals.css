@@ -1,0 +1,243 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --mm-indigo: #3B3BF9;
+  --mm-indigo-light: #5B5BFF;
+  --mm-indigo-dark: #2D2DC7;
+  --mm-bg: #F4F2FF;
+  --mm-bg-gradient: linear-gradient(180deg, #F4F2FF 0%, #E8E4FF 30%, #EDE9FF 60%, #F8F7FF 100%);
+  --mm-card: rgba(255, 255, 255, 0.75);
+  --mm-card-border: rgba(59, 59, 249, 0.1);
+  --mm-text: #1A1A3E;
+  --mm-text-secondary: #6B6B8D;
+  --mm-text-muted: #9B9BB5;
+  --background: #F4F2FF;
+  --foreground: #1A1A3E;
+  --card: #ffffff;
+  --card-foreground: #1A1A3E;
+  --popover: #ffffff;
+  --popover-foreground: #1A1A3E;
+  --primary: #3B3BF9;
+  --primary-foreground: #ffffff;
+  --secondary: #EDE9FF;
+  --secondary-foreground: #1A1A3E;
+  --muted: #ececf0;
+  --muted-foreground: #6B6B8D;
+  --accent: #EDE9FF;
+  --accent-foreground: #1A1A3E;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(59, 59, 249, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f8;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #3B3BF9;
+  --chart-1: #3B3BF9;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #ef4444;
+  --chart-5: #8b5cf6;
+  --radius: 0.75rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1A1A3E;
+  --sidebar-primary: #3B3BF9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #EDE9FF;
+  --sidebar-accent-foreground: #1A1A3E;
+  --sidebar-border: rgba(59, 59, 249, 0.1);
+  --sidebar-ring: #3B3BF9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Satoshi Variable', 'Satoshi', system-ui, -apple-system, sans-serif;
+  background: var(--mm-bg);
+  color: var(--mm-text);
+  overflow-x: hidden;
+}
+
+/* Glass card - white frosted glass */
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(59, 59, 249, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59, 59, 249, 0.05),
+              0 0 0 0.5px rgba(255, 255, 255, 0.6) inset;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(59, 59, 249, 0.22);
+  box-shadow: 0 4px 24px rgba(59, 59, 249, 0.09),
+              0 0 0 0.5px rgba(255, 255, 255, 0.6) inset;
+}
+
+/* Glass dark - for navbar floating pill */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1.5px solid rgba(59, 59, 249, 0.1);
+  box-shadow: 0 4px 24px rgba(59, 59, 249, 0.08),
+              0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+/* Purple gradient card */
+.gradient-card {
+  background: linear-gradient(135deg, #4040FF 0%, #6B5BFF 40%, #8B7BFF 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 48px rgba(59, 59, 249, 0.3);
+  color: white;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: var(--mm-indigo);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  font-size: 0.875rem;
+}
+
+.btn-primary:hover {
+  background: var(--mm-indigo-dark);
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(59, 59, 249, 0.35);
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: var(--mm-text);
+  text-decoration: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 1px solid rgba(59, 59, 249, 0.2);
+  font-size: 0.875rem;
+}
+
+.btn-secondary:hover {
+  background: rgba(59, 59, 249, 0.06);
+  border-color: rgba(59, 59, 249, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: 'Satoshi Variable', 'Satoshi', sans-serif;
+}
